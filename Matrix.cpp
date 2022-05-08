@@ -86,12 +86,9 @@ void Matrix::rref()
         {
             if (i != row)
             {
-                std::thread t1(&Matrix::add_multiple_row, this, i, row, -matrix[i][lead], 0, col_size / 3);
-                std::thread t2(&Matrix::add_multiple_row, this, i, row, -matrix[i][lead], col_size / 3, 2 * col_size / 3);
-                std::thread t3(&Matrix::add_multiple_row, this, i, row, -matrix[i][lead], 2 * col_size / 3, col_size);
-                t1.join();
-                t2.join();
-                t3.join();
+                // std::thread t1(&Matrix::add_multiple_row, this, i, row, -matrix[i][lead], col_size / 2, col_size);
+                add_multiple_row(i, row, -matrix[i][lead], 0, col_size);
+                // t1.join();
             }
         }
     }
