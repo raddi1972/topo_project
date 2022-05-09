@@ -82,15 +82,20 @@ void Matrix::rref()
         }
         swap_rows(i, row);
         divide_rows(row, matrix[row][lead]);
+        // std::vector<std::thread> threads;
         for (i = 0; i < row_size; i++)
         {
             if (i != row)
             {
-                // std::thread t1(&Matrix::add_multiple_row, this, i, row, -matrix[i][lead], col_size / 2, col_size);
+                // std::thread thread(&Matrix::add_multiple_row, this, i, row, -matrix[i][lead], 0, col_size);
                 add_multiple_row(i, row, -matrix[i][lead], 0, col_size);
-                // t1.join();
+                // threads.push_back(std::move(thread));
             }
         }
+        // for (auto &thread : threads)
+        // {
+        //     thread.join();
+        // }
     }
 }
 
