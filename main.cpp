@@ -67,8 +67,8 @@ int main(int argc, char **argv)
 
     std::cout << "Time Taken is = " << std::chrono::duration_cast<std::chrono::seconds>(end - start).count() << std::endl;
     // matrix.print();
-    // Matrix *ker_space = matrix.get_ker();
-    // ker_space->print();
+    Matrix *ker_space = matrix.get_ker();
+    ker_space->print();
     // int **array;
     // array = new int *[3];
     // for (int i = 0; i < 3; i++)
